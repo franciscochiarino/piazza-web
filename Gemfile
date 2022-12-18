@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Determine the key for any given string
+  gem "i18n-debug"
 end
 
 group :test do
