@@ -1,9 +1,9 @@
-<% content_for(:title, t("title"))%>
+<% content_for(:title, t(".title"))%>
 
 <layout-coumns class="columns is-centered">
   <layout-column class="column box is-5 mt-6 p-5 m-4">
     <h1 class="title has-text-centered">
-      <%= t("title") %>
+      <%= t(".title") %>
     </h1>
 
     <%= form_with(model: @user, url: sign_up_path, class: "is-flex is-flex-direction-column") do |form| %>
