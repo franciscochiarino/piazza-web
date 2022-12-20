@@ -25,10 +25,11 @@ module Authenticate
       Current.user.present?
     end
 
-    def log_in(app_session)
-      cookies.encrypted.permanent[:app_session] = {
-        value: app_session.to_h
-      }
+    def log_in(app_session, remember_me = false)
+      cookie_value = { value: app_session.to_h }
+      cookie_value[:expires] = 20.years if remember_me
+
+      cookies.encrypted[:app_session] = cookie_value
     end
 
     def log_out
