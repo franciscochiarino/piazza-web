@@ -19,5 +19,14 @@ module Mobile
 
       assert_current_path(login_path)
     end
+
+    test "can log out via burger menu" do
+      log_in(users(:kramer))
+
+      find(".navbar-burger").click
+      click_on((I18n.t("shared.navbar.logout")))
+
+      assert_selector(".notification.is-success", text: I18n.t("sessions.destroy.success"))
+    end
   end
 end
