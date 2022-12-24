@@ -21,7 +21,7 @@ module Mobile
     end
 
     test "can log out via burger menu" do
-      log_in(users(:kramer))
+      login_as(users(:kramer))
 
       find(".navbar-burger").click
       click_on((I18n.t("shared.navbar.logout")))

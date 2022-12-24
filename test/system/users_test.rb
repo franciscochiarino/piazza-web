@@ -50,7 +50,7 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "can update name" do
-    log_in(users(:jerry))
+    login_as(users(:jerry))
     visit(profile_path)
 
     fill_in(User.human_attribute_name(:name), with: "Jerry Seinfeld")
@@ -61,7 +61,7 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "can log out" do
-    log_in(users(:jerry))
+    login_as(users(:jerry))
 
     find(".navbar-item.has-dropdown").hover
     click_on(I18n.t("shared.navbar.logout"))
@@ -71,7 +71,7 @@ class UsersTest < ApplicationSystemTestCase
   end
 
   test "can change password" do
-    log_in(users(:jerry))
+    login_as(users(:jerry))
     visit(profile_path)
 
     fill_in(I18n.t("users.show.current_password"), with: "password")
