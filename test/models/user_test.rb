@@ -69,4 +69,8 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("Bob", @user.name)
     assert_equal("bob@example.com", @user.email)
   end
+
+  test "password can be updated" do
+    # TODO: test updating a user with and without the :password_change context
+  end
 end
