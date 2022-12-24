@@ -69,4 +69,16 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector(".notification.is-success", text: I18n.t("sessions.destroy.success"))
     assert_selector(".button", text: I18n.t("shared.navbar.login"))
   end
+
+  test "can change password" do
+    log_in(users(:jerry))
+    visit(profile_path)
+
+    fill_in(I18n.t("users.show.current_password"), with: "password")
+    fill_in(I18n.t("users.show.new_password"), with: "new_password")
+
+    click_on(I18n.t("users.show.change_password_button"))
+
+    assert_selector(".notification.is-success", text: I18n.t("users.passwords.update.success"))
+  end
 end

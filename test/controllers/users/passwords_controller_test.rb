@@ -10,7 +10,7 @@ class Users::PasswordsControllerTest < ActionDispatch::IntegrationTest
     patch(users_change_password_path, params: {
       user: {
         current_password: "password",
-        password: "new_password"
+        new_password: "new_password"
       }
     })
 

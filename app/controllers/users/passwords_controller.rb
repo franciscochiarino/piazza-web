@@ -2,7 +2,7 @@ class Users::PasswordsController < ApplicationController
   before_action :authenticate_current_password
 
   def update
-    @user.password = params.dig(:user, :password)
+    @user.password = params.dig(:user, :new_password)
 
     if @user.save(context: :password_change)
       flash[:success] = t(".success")
