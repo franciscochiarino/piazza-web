@@ -54,4 +54,19 @@ class UserTest < ActiveSupport::TestCase
     assert_equal("John", @user.name)
     assert_equal("johndoe@example.com", @user.email)
   end
+
+  test "name and email can be updated" do
+    @user = User.create(
+      name: "Joe",
+      email: "joe@example.com",
+      password: "password"
+    )
+    @user.update(
+      name: "Bob",
+      email: "bob@example.com"
+    )
+
+    assert_equal("Bob", @user.name)
+    assert_equal("bob@example.com", @user.email)
+  end
 end
